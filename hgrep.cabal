@@ -1,0 +1,64 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.1.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 1b289b503aad06838b1dae26eef4a6c0cccc99cdada0f7704093088a6ac876f0
+
+name:           hgrep
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/nystrom/hgrep#readme>
+homepage:       https://github.com/nystrom/hgrep#readme
+bug-reports:    https://github.com/nystrom/hgrep/issues
+author:         Nate Nystrom
+maintainer:     nate.nystrom@usi.ch
+copyright:      Copyright 2017 - Nate Nystrom
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/nystrom/hgrep
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_hgrep
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , parsec
+  default-language: Haskell2010
+
+executable hgrep-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_hgrep
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hgrep
+    , parsec
+  default-language: Haskell2010
+
+test-suite hgrep-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_hgrep
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hgrep
+    , parsec
+  default-language: Haskell2010
